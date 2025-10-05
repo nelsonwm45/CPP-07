@@ -29,16 +29,36 @@ void	swap(T &a, T &b)
 	b = temp;
 }
 
+// read-write version (non-const refs)
 template <typename T>
-T min(const T &a, const T &b)
+T &min(T &a, T &b)
 {
 	if (a < b)
 		return (a);
 	return (b);
 }
 
+// read-only version (const refs)
 template <typename T>
-T max(const T &a, const T &b)
+const T &min(const T &a, const T &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+// read-write version (non-const refs)
+template <typename T>
+T &max(T &a, T &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+// read-only version (const refs)
+template <typename T>
+const T &max(const T &a, const T &b)
 {
 	if (a > b)
 		return (a);

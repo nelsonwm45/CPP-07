@@ -17,7 +17,7 @@ NAME = whatever
 
 # Compilera
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 $(FSAN)
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I . -g3 $(FSAN)
 FSAN = -fsanitize=address
 RM = rm -f
 

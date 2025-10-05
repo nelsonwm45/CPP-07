@@ -17,8 +17,8 @@ NAME = Array
 
 # Compilera
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 $(FSAN)
-FSAN = -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I . $(FSAN)
+FSAN = -fsanitize=address -g3
 RM = rm -f
 
 # Source and Object
@@ -49,5 +49,8 @@ clean:
 fclean: clean
 	@ echo $(MAGENTA)" 🥯 Removing "$(RED)"[$(NAME)]"$(GREEN)"..."$(RESET)
 	@ $(RM) $(NAME)
+
+valgrind:
+	valgrind --leak-check=full ./$(NAME)
 
 re : fclean all
